@@ -1,0 +1,469 @@
+<cinematicModel xmlns="http://liquidnarrative.csc.ncsu.edu/cinematicModel/v0.1" millisPerTick="1" domainDistancePerEngineDistance="1">
+<!--<cinematicModel xmlns="http://liquidnarrative.csc.ncsu.edu/cinematicModel/v0.1" millisPerTick="33" domainDistancePerEngineDistance="80">-->
+  <smartModelSettings maxActorSearchDepth="2" maxAnimationSearchDepth="2" />
+  <!--<terrain location="(0,0,0)" terrainFileName="defaultTerrain.prefab"/> -->
+  <!-- animation search depth should generally be at least as deep as actor search depth-->
+  
+  <domainActions>
+    <domainAction name="spawn-creep" >
+      <params>
+        <param name="actor" />
+        <param name="position" />
+      </params>      
+      <createActions>
+        <createAction actorNameParamName="actor" originParamName="position" />
+      </createActions>
+      <destroyActions/>
+      <rotateActions/>
+      <translateActions/>
+      <animateActions/>
+	  <functionActions/>
+    </domainAction>
+	
+	<domainAction name="fall" >
+      <params>
+         <param name="actor" />
+        <param name="destination" />
+        <param name="origin" />
+		 <param name="end-angle" />
+      </params>
+      <createActions/>
+      <rotateActions>
+        <rotateAction actorNameParamName="actor" destinationParamName="end-angle" maxDuration="400"/>
+      </rotateActions>
+      <translateActions>
+		<translateAction  actorNameParamName="actor" destinationParamName="destination" originParamName="origin" effectorOffsetIndexName="end_off_balance" maxDuration = "1550"/>
+	   <!-- <translateAction  actorNameParamName="actor" destinationParamName="destination" originParamName="destination" effectorOffsetIndexName="end_fall"/>-->
+	  </translateActions>
+      <destroyActions/>
+      <animateActions>
+        <animateAction name="off_balance" actorNameParamName="actor" effector="true" />
+		<animateAction name="die" actorNameParamName="actor" effector="true"/> 
+		<animateAction name="falling" actorNameParamName="actor" effectorOffsetIndexName="end_off_balance" />
+		<animateAction name="m_drunk_gestic" actorNameParamName="actor" effectorOffsetIndexName="end_fall"  />
+		<animateAction name="stay_dead" actorNameParamName="actor" effectorOffsetIndexName="end_die_after_fall" />
+      </animateActions>
+	  <functionActions/>
+    </domainAction>
+	
+	<domainAction name="crawl">
+      <params>
+        <param name="actor" />
+      </params>
+      <createActions/>
+      <rotateActions/>
+      <translateActions/>
+      <destroyActions/>
+      <animateActions>
+        <animateAction name="crawl" actorNameParamName="actor" endingAction="knees"/>
+      </animateActions>
+	  <functionActions/>
+    </domainAction>
+	
+	<domainAction name="crawling">
+      <params>
+        <param name="actor" />
+		<param name="destination" />
+        <param name="origin" />
+      </params>
+      <createActions/>
+      <rotateActions/>
+      <translateActions>
+		<translateAction actorNameParamName="actor" destinationParamName="destination" originParamName="origin"/>
+	  </translateActions>
+      <destroyActions/>
+      <animateActions>
+        <animateAction name="crawling" actorNameParamName="actor" endingAction="knees"/>
+      </animateActions>
+	  <functionActions/>
+    </domainAction>
+	
+	<domainAction name="whipTo">
+	  <params>
+		<param name="origin"/>
+		<param name = "colorName"/>
+		<param name = "target"/>
+	  </params>
+	  <createActions/>
+	  <rotateActions/>
+	  <translateActions/>
+	  <destroyActions/>
+	  <animateActions>
+		<animateAction name="whipTo" actorNameParamName="origin" endingAction="handUp"/>
+      </animateActions>
+	  <functionActions>
+		<functionAction name="drawLine" >
+			<args> 
+				<arg argname = "source"  argtype="Vector3" argvalue="origin" />
+				<arg argname = "sink"  argtype="Vector3" argvalue="target" />
+				<arg argname="color" argtype="float" argvalue = "colorName"/>
+			</args>
+		</functionAction>
+	  </functionActions>
+	</domainAction>
+	
+	<domainAction name="handUp">
+	  <params>
+		<param name="actor"/>
+	  </params>
+	  <createActions/>
+	  <rotateActions/>
+	  <translateActions/>
+	  <destroyActions/>
+	  <animateActions>
+		<animateAction name="handUp" actorNameParamName="actor" endingAction="handUp"/>
+      </animateActions>
+	  <functionActions/>
+	</domainAction>
+	
+    <domainAction name="die" >
+      <params>
+        <param name="actor" />
+      </params>
+      <createActions/>
+      <rotateActions/>
+      <translateActions/>
+      <destroyActions>
+        <destroyAction actorNameParamName="actor" effectorOffsetIndexName="onTheGround"/>
+      </destroyActions>
+      <animateActions>
+        <animateAction name="die" actorNameParamName="actor" endingAction = "stay_dead"/>
+      </animateActions>
+	  <functionActions/>
+    </domainAction>
+    <domainAction name="buy-item" >
+      <params>
+        <param name="actor" />
+      </params>
+      <animateActions>
+        <animateAction name="buy-item1" actorNameParamName="actor"/>
+      </animateActions>
+      <createActions/>
+      <destroyActions/>
+      <rotateActions/>
+      <translateActions/>
+	  <functionActions/>
+    </domainAction>
+    <domainAction name="idle" >
+      <params>
+        <param name="actor" />
+      </params>
+      <animateActions>
+        <animateAction name="idle" actorNameParamName="actor"/>
+      </animateActions>
+      <createActions/>
+      <destroyActions/>
+      <rotateActions/>
+      <translateActions/>
+	  <functionActions/>
+    </domainAction>
+    <domainAction name="initialize" >
+      <params>
+        <param name="actor" />
+		<param name="action" />
+        <param name="location" />
+      </params>
+      <createActions>
+        <createAction actorNameParamName="actor" originParamName="location" />
+      </createActions>
+      <destroyActions/>
+      <rotateActions/>
+      <translateActions/>
+      <animateActions>
+	    <animateAction name="action" actorNameParamName="actor" />
+	  </animateActions>
+	  <functionActions/>
+    </domainAction>
+    <domainAction name="move" >
+      <params>
+        <param name="actor" />
+        <param name="destination" />
+        <param name="origin" />
+      </params>
+      <createActions/>
+      <destroyActions/>
+      <translateActions>
+        <translateAction  actorNameParamName="actor" destinationParamName="destination" originParamName="origin"/>
+      </translateActions>
+      <animateActions>
+        <animateAction  name="sneak" actorNameParamName="actor" effector="false"/>
+      </animateActions>
+      <rotateActions/>
+	  <functionActions/>
+    </domainAction>
+	
+	<domainAction name="walk" >
+      <params>
+        <param name="actor" />
+        <param name="destination" />
+        <param name="origin" />
+      </params>
+      <createActions/>
+      <destroyActions/>
+      <translateActions>
+        <translateAction  actorNameParamName="actor" destinationParamName="destination" originParamName="origin"/>
+      </translateActions>
+      <animateActions>
+        <animateAction  name="walk" actorNameParamName="actor" effector="false"/>
+      </animateActions>
+      <rotateActions/>
+	  <functionActions/>
+    </domainAction>
+	
+	 <domainAction name="descend_stairs" >
+      <params>
+        <param name="actor" />
+        <param name="destination" />
+        <param name="origin" />
+      </params>
+      <createActions/>
+      <destroyActions/>
+      <translateActions>
+        <translateAction  actorNameParamName="actor" destinationParamName="destination" originParamName="origin"/>
+      </translateActions>
+      <animateActions>
+        <animateAction  name="m_descendstairs" actorNameParamName="actor" effector="false"/>
+      </animateActions>
+      <rotateActions/>
+	  <functionActions/>
+    </domainAction>
+	
+    <domainAction name="rotate">
+      <params>
+        <param name="actor" />
+        <param name="end-angle" />
+      </params>
+      <createActions/>
+      <destroyActions/>
+      <translateActions/>
+      <rotateActions>
+        <rotateAction actorNameParamName="actor" destinationParamName="end-angle" maxDuration="400"/>
+      </rotateActions>
+      <animateActions/>
+	  <functionActions/>
+    </domainAction>   
+  </domainActions>
+  <actors>
+    <actor name="secretAgentMan" model="m007.prefab" pointOfInterest="0.8">
+      <animationMappings>
+        <animationMapping animateActionName="idle" animationName="idle" loopAnimation="true" />
+        <animationMapping animateActionName="walk" animationName="cm_walk" loopAnimation="true" />
+        <animationMapping animateActionName="sneak" animationName="sneak" loopAnimation="true" />
+		<animationMapping animateActionName="off_balance" animationName="off_balance" loopAnimation="false" />
+		<animationMapping animateActionName="falling" animationName="falling" loopAnimation="false" />
+		<animationMapping animateActionName="die" animationName="die" loopAnimation="false" />
+		<animationMapping animateActionName="stay_dead" animationName="stay_dead" loopAnimation="true" />
+		<animationMapping animateActionName="m_drunk_gestic" animationName="m_drunk_gestic" loopAnimation="true" />
+	  </animationMappings>
+    </actor>
+	<actor name="Hero" model="m005.prefab" pointOfInterest="0.9">
+      <animationMappings>
+        <animationMapping animateActionName="idle" animationName="idle" loopAnimation="true" />
+        <animationMapping animateActionName="walk" animationName="walk" loopAnimation="true" />
+        <animationMapping animateActionName="sneak" animationName="sneak" loopAnimation="true" />
+		<animationMapping animateActionName="m_descendstairs" animationName="m_descendstairs" loopAnimation="true" />
+		<animationMapping animateActionName="ascend_stairs" animationName="m_ascendstairs" loopAnimation="true" />
+		<animationMapping animateActionName="crawl" animationName="crawl" loopAnimation = "false"/>
+		<animationMapping animateActionName="crawling" animationName="crawling" loopAnimation = "true"/>
+		<animationMapping animateActionName="knees" animationName="knees" loopAnimation = "true"/>
+		<animationMapping animateActionName="whipTo" animationName="whipTo" loopAnimation = "false"/>
+		<animationMapping animateActionName="handUp" animationName="handUp" loopAnimation="true"/>
+	  </animationMappings>
+    </actor>
+    <actor name="Pudge" model="pudge_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="sneak" animationName="sneak" loopAnimation="true" />
+        <animationMapping animateActionName="walk" animationName="walk" loopAnimation="true" />
+        <animationMapping animateActionName="buy-item1" animationName="verticalSwipe" loopAnimation="true" />
+        <animationMapping animateActionName="idle" animationName="idle" loopAnimation="true" />
+      </animationMappings>
+    </actor>
+
+
+    <actor name="Mirana" model="Heroes/mirana/mirana_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="mirana_walk" loopAnimation="true" />
+      </animationMappings>
+    </actor>
+
+    <actor name="Crystal Maiden" model="Heroes/crystal_maiden/crystal_maiden_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="cm_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="cm_die" loopAnimation="false" />
+      </animationMappings>
+    </actor>
+    <actor name="Skywrath Mage" model="Heroes/skywrath_mage/skywrath_mage_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="swm_walk" loopAnimation="true" />
+      </animationMappings>
+    </actor>
+
+    <actor name="Wisp" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Dazzle" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Legion Commander" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Mirana" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Ancient Apparition" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Morphling" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+    <actor name="Ember Spirit" model="m005.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <!--<actor name="GoodGuysRanged" model="Heroes/crystal_maiden/crystal_maiden_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="swm_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="swm_die" loopAnimation="false" />
+      </animationMappings>
+    </actor>-->
+
+    <actor name="Couriers" model="m005.fbx">
+      <animationMappings/>
+    </actor>
+    <actor name="Creeps" model="m005.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="swm_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="swm_die" loopAnimation="false" />
+      </animationMappings>
+    </actor>
+
+    <actor name="Buildings" model="m005.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="swm_walk" loopAnimation="true" />
+      </animationMappings>
+    </actor>
+
+    <actor name="npc_dota_creep_badguys_melee" model="Non-heroes/creep_bad_melee/creep_bad_melee_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="bad_melee_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="swm_die" loopAnimation="false" />
+      </animationMappings>
+    </actor>
+    <actor name="npc_dota_creep_goodguys_melee" model="Non-heroes/creep_good_melee/creep_good_melee_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="good_melee_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="die" loopAnimation="false" />
+      </animationMappings>
+    </actor>
+    <actor name="npc_dota_creep_badguys_ranged" model="Non-heroes/creep_bad_ranged/creep_bad_ranged_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="die" animationName="die" loopAnimation="false" />
+        <animationMapping animateActionName="walk" animationName="bad_ranged_walk" loopAnimation="true" />
+      </animationMappings>
+    </actor>
+    <actor name="npc_dota_creep_goodguys_ranged" model="Non-heroes/creep_good_ranged/creep_good_ranged_model.fbx" >
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="good_ranged_walk" loopAnimation="true" />
+        <animationMapping animateActionName="die" animationName="die" loopAnimation="false" />
+      </animationMappings>
+    </actor>
+
+    <actor name="radiant_observer_ward" model="Non-heroes/ward/ward_model.fbx" >
+      <animationMappings/>
+    </actor>
+
+    <actor name="Steve Holt" model="Heroes/crystal_maiden/crystal_maiden_model.fbx">
+      <animationMappings>
+        <animationMapping animateActionName="walk" animationName="pudge_walk" loopAnimation="true"/>
+      </animationMappings>
+    </actor>
+  </actors>
+  
+ 
+	<!--	<animateAction name="die" actorNameParamName="actor" effector="true"/> -->
+	
+  <animations>
+   <animation fileName="off_balance.fbx" name="off_balance">
+	  <animationIndices>
+        <animationIndex name="end_off_balance" timeOffset="1700"/>
+		<animationIndex name="end_fall" timeOffset="1900"/>
+		<animationIndex name="end_die_after_fall" timeOffset="2900"/>
+      </animationIndices>
+  </animation>
+  
+  <animation fileName="die.fbx" name="die">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="m_descendstairs.fbx" name="m_descendstairs">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="m_drunk_gestic.fbx" name="m_drunk_gestic">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="fall.fbx" name="fall">
+  <animationIndices/>
+  </animation>
+  
+   <animation fileName="falling.fbx" name="falling">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="crawl.fbx" name="crawl">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="crawling.fbx" name="crawling">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="knees.fbx" name="knees">
+  <animationIndices/>
+  </animation>
+  
+  <animation fileName="stay_dead.fbx" name="stay_dead">
+	<animationIndices/>
+  </animation>
+  
+  <animation fileName="whipTo.fbx" name="whipTo">
+	<animationIndices/>
+  </animation>
+  
+  <animation fileName="handUp.fbx" name="handUp">
+	<animationIndices/>
+  </animation>
+  
+ 
+    <animation fileName="mirana_walk.fbx" name="mirana_walk">
+      <animationIndices/>
+    </animation>
+
+    <animation fileName="humanoid_sneak.fbx" name="sneak">
+      <animationIndices>
+        <animationIndex name="sneakAWhile" timeOffset ="2200"/>
+        <animationIndex name="sneakAWhileMore" timeOffset ="2220"/>
+      </animationIndices>
+    </animation>
+    <animation fileName="humanoid_dying.fbx" name="die">
+      <animationIndices>
+        <animationIndex name="onTheGround" timeOffset ="3125"/>
+      </animationIndices>
+    </animation>
+
+    <animation fileName="run.fbx" name="walk">
+      <animationIndices/>
+    </animation>
+	
+	<animation fileName="idle.fbx" name="idle">
+      <animationIndices/>
+    </animation>
+
+  </animations>
+</cinematicModel>

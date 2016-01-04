@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cameraPlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://liquidnarrative.csc.ncsu.edu/oshmirto/v0.1">
+ <blocks>
+    
+<!-- Convey Dangerous fall-off-bridge -->
+       
+	   <block storyTime="10000">
+		<shotFragments>
+        <shotFragment duration="4000" anchor="24.1,15.12,23.29">
+          <framings>
+			<framing framingType="ExtremeLong" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+	   
+		<block storyTime="12000">
+		<shotFragments>
+        <shotFragment duration="2000">
+          <framings>
+			<framing framingType="Long" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+			<movement type="Pan" directive="With" subject = "secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		<!--<angle target="secretAgentMan" angleSetting="High" />-->
+		
+		<block storyTime="12000">
+		<shotFragments>
+        <shotFragment duration="2000">
+		  <direction heading="Toward" target="Hero"/>
+          <framings>
+			<framing framingType="Waist" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<block storyTime="12000">
+		<shotFragments>
+        <shotFragment duration="2000">
+		  <direction heading="Toward" target="secretAgentMan"/>
+          <framings>
+			<framing framingType="Waist" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+			<movement type="Dolly" directive="With" subject = "secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<block storyTime="12000">
+		<shotFragments>
+        <shotFragment duration="2000">
+		  <direction heading="Toward" target="Hero"/>
+          <framings>
+			<framing framingType="CloseUp" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		
+		<!-- Off Balance -->
+		<block storyTime="15500">
+		<shotFragments>
+        <shotFragment duration="2000" shake="1.5">
+		  <angle target="secretAgentMan" angleSetting="Medium"/>
+          <framings>
+			<framing framingType="Waist" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+			<movement type="Pan" directive="With" subject = "secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<!-- Falling (tilt with) -->
+		<block storyTime="16500">
+		<shotFragments>
+        <shotFragment duration="4000" shake="2.2">
+		  <angle target="secretAgentMan" angleSetting="Medium"/>
+          <framings>
+			<framing framingType="Waist" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+			<movement type="Pan" directive="With" subject = "secretAgentMan"/>
+			<movement type="Tilt" directive="With" subject = "secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<!-- close Up dead on ground -->
+		<block storyTime="20100">
+		<shotFragments>
+        <shotFragment duration="3000">
+		  <angle target="secretAgentMan" angleSetting="High" />
+          <framings>
+			<framing framingType="CloseUp" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<!-- A new hope... -->
+		<block storyTime="20100">
+		<shotFragments>
+        <shotFragment duration="2500">
+		  <angle target="Hero" angleSetting="Medium" />
+          <framings>
+			<framing framingType="CloseUp" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<!-- 
+		<block storyTime="20100">
+		<shotFragments>
+        <shotFragment duration="2500">
+		  <angle target="Hero" angleSetting="High" />
+          <framings>
+			<framing framingType="Long" framingTarget="secretAgentMan"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="secretAgentMan"/>
+			<movement type="Dolly" directive="With" subject="Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block> -->
+		
+<!-- Convey Motivated-By-Danger-->
+
+		<block storyTime="31000"> <!-- 28000 -->
+		<shotFragments>
+        <shotFragment duration="2000">
+		   <direction heading="Toward" target="Hero"/> 
+		   <angle target="Hero" angleSetting="Medium" />
+          <framings>
+			<framing framingType="Waist" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+
+		<!-- beneath bridge -->
+		<block storyTime="31000">
+		<shotFragments>
+        <shotFragment duration="2000">
+		  <direction heading="Away" target="Hero"/> -
+		   <angle target="Hero" angleSetting="Low" />
+          <framings>
+			<framing framingType="CloseUp" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<!-- close up to emphasize motive -->
+		<block storyTime="32000">
+		<shotFragments>
+        <shotFragment duration="1000">
+			<direction heading="Toward" target="Hero"/> 
+			<angle target="Hero" angleSetting="Medium" />
+          <framings>
+			<framing framingType="CloseUp" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<block storyTime="32000">
+		<shotFragments>
+        <shotFragment duration="1000">
+		  <direction heading="Right" target="Hero"/> 
+		   <angle target="Hero" angleSetting="Low" />
+          <framings>
+			<framing framingType="CloseUp" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<movement type="Dolly" directive="With" subject = "Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		
+<!-- Convey Prevent-Danger-->
+		<block storyTime="33000">
+		<shotFragments>
+        <shotFragment duration="4000">
+			<angle target="Hero" angleSetting="Medium" />
+          <framings>
+			<framing framingType="Waist" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+			<!--<movement type="Tilt" directive="With" subject = "Hero"/>-->
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<block storyTime="46000">
+		<shotFragments>
+        <shotFragment duration="2000">
+          <framings>
+			<framing framingType="Long" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		<block storyTime="46000">
+		<shotFragments>
+        <shotFragment duration="2000" >
+		 <direction heading="Right" target="Hero"/>
+			<angle target="Hero" angleSetting="Medium" />
+          <framings>
+			<framing framingType="ExtremeLong" framingTarget="Hero"/>
+		  </framings>
+          <movements>
+            <movement type="Focus" directive="With" subject="Hero"/>
+          </movements>
+        </shotFragment>
+		</shotFragments>
+		</block>
+		
+		
+  </blocks>
+  
+  <!-- 
+			 public static Dictionary<string, ushort> lenses = new Dictionary<string, ushort>() 
+        { 
+            {"12mm",0}, {"14mm",1}, {"16mm",2}, {"18mm",3}, {"21mm",4}, {"25mm",5}, {"27mm",6}, 
+            {"32mm",7}, {"35mm",8}, {"40mm",9}, {"50mm",10}, {"65mm",11}, {"75mm",12}, {"100mm",13},
+            {"135mm",14}, {"150mm",15}, {"180mm",16}
+        };
+
+        public static Dictionary<string, ushort> fStops = new Dictionary<string, ushort>()
+        {
+            {"1.4",0}, {"2",1}, {"2.8",2}, {"4",3}, {"5.6",4}, {"8",5}, {"11",6}, {"16",7}, {"22",8}
+        }; -->
+</cameraPlan>
